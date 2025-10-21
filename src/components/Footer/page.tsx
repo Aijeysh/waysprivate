@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="space-y-4">
           <h5 className="text-2xl font-bold text-white">Ways Private Limited</h5>
           <p className="text-slate-400 max-w-sm">
-            We craft cinematic experiences — from feature films and music videos to creative content for brands and artists worldwide.
+            We craft cinematic experiences — from movies, feature films and music videos to creative content for brands and artists worldwide.
           </p>
           <SocialIcons /> {/* Client component */}
         </div>
@@ -39,8 +39,8 @@ export default function Footer() {
         {/* Contact Info */}
         <div className="space-y-4">
           <h6 className="font-semibold text-white mb-4">Contact</h6>
-          <p className="text-slate-400 text-sm">Email: contact@waysprivatelimited.com</p>
-          <p className="text-slate-400 text-sm">Phone: +977 980-XXXXXXX</p>
+          <p className="text-slate-400 text-sm">Email: waysprivateltd@gmail.com</p>
+          <p className="text-slate-400 text-sm">Phone: +977 9803008298</p>
           <p className="text-slate-400 text-sm">Kathmandu, Nepal</p>
         </div>
       </div>
