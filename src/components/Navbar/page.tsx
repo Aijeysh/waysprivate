@@ -17,9 +17,9 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8 font-semibold text-white">
           <Link href="/">Home</Link>
           <Link href="/">Services</Link>
-          <Link href="/">About</Link>
+          <Link href="/about">About</Link>
           <Link href="/">Blogs</Link>
-          <Link href="/">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -33,9 +33,9 @@ export default function Navbar() {
         <div className="md:hidden bg-black/90 backdrop-blur-md w-full text-white flex flex-col items-center py-4 space-y-4">
           <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/" onClick={() => setMenuOpen(false)}>Services</Link>
-          <Link href="/" onClick={() => setMenuOpen(false)}>About</Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
           <Link href="/" onClick={() => setMenuOpen(false)}>Blogs</Link>
-          <Link href="/" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
         </div>
       )}
     </nav>

@@ -1,0 +1,75 @@
+// src/app/about/page.tsx
+import Image from "next/image";
+import TeamCard from "@/components/About/TeamCard";
+
+export const metadata = {
+  title: "About Us | Ways Private Limited",
+  description: "Ways Private Limited - Theatre & Film Production Company in Kathmandu, Nepal",
+};
+
+const team = [
+  {
+    name: "Aashant Sharma",
+    role: "Founder & Creative Director",
+    bio: "Aashant brings over 15 years of experience in theatre and film direction, scriptwriting, and lyrics creation. Directed 'Taraharu' and multiple acclaimed plays.",
+    facebook: "https://www.facebook.com/aashant.sharma",
+    linkedin: "https://www.linkedin.com/in/aashant-sharma-49096b104/",
+    email: "wayskrisaashant@gmail.com",
+    photo: "/Ways_Private_Limited_Logo.jpeg", // your current photo
+  },
+  {
+    name: "Aijeysh Sharma",
+    role: "Head of Marketing",
+    bio: "Aijeysh leads marketing, outreach, and brand collaborations. Ensures our productions reach the right audience.",
+    facebook: "https://www.facebook.com/SharmaAijeysh",
+    linkedin: "https://www.linkedin.com/in/sharmaaijeysh/",
+    email: "sharmaaijeysh@gmail.com",
+    photo: "/kkk.jpg", // your current photo
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <section className="min-h-screen bg-gradient-to-b from-[#0b0b0f] via-[#13131a] to-[#0b0b0f] text-slate-100 py-24 relative">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 space-y-16">
+
+        {/* Header */}
+        <div className="text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+            About Ways Private Limited
+          </h1>
+          <p className="mt-4 text-slate-300 text-lg max-w-3xl mx-auto">
+            Established in 2007, Ways Private Limited has been at the forefront of Nepal’s theatre and film industry. Our mission is to craft cinematic experiences and theatrical performances that resonate with audiences.
+          </p>
+        </div>
+
+        {/* Company Story */}
+        <div className="space-y-8">
+          <div className="relative w-full h-80 md:h-[450px] rounded-xl shadow-xl overflow-hidden">
+            <Image src="/Ways_Private_Limited_Logo.jpeg" alt="Ways Private Limited" fill className="object-cover" />
+          </div>
+          <h2 className="text-3xl font-semibold text-white">Our Journey</h2>
+          <p className="text-slate-300 text-lg leading-relaxed">
+            We have produced acclaimed theatre plays such as <strong>Daraudi ko Paani</strong>, <strong>Dhalkeko Saalaijo</strong>, <strong>Bullet and the Buddha</strong>, <strong>Katha Express</strong>, and <strong>Lig Picnic</strong>. Recently, we released our own film <strong>Taraharu</strong>.
+          </p>
+          <p className="text-slate-300 text-lg leading-relaxed">
+            Our productions span theatre, films, music videos, brand videos, and advertising content. While primarily operating in Kathmandu, we serve clients throughout Nepal.
+          </p>
+        </div>
+
+        {/* Team Section */}
+        <div className="space-y-12">
+          <h2 className="text-3xl font-semibold text-white text-center">Meet Our Team</h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            {team.map((member) => (
+              <TeamCard key={member.name} {...member} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Decorative bottom gradient */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+    </section>
+  );
+}

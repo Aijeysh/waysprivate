@@ -15,17 +15,17 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     id: 1,
-    title: "Film Production",
-    overview: "End-to-end film production services from concept to release.",
+    title: "Theatre Production",
+    overview: "End-to-end theatre production services from concept to release.",
     imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/film-production",
+    link: "/services/theatre-production",
   },
   {
     id: 2,
-    title: "Music Video Production",
-    overview: "Creative music video solutions for artists and brands.",
+    title: "Movie Production",
+    overview: "Movie solutions and services from concept to production release",
     imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/music-video-production",
+    link: "/services/movie-production",
   },
   {
     id: 3,
