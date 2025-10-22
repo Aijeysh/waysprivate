@@ -53,7 +53,7 @@ export default function AboutPage() {
             We have produced acclaimed theatre plays such as <strong>Daraudi ko Paani</strong>, <strong>Dhalkeko Saalaijo</strong>, <strong>Bullet and the Buddha</strong>, <strong>Katha Express</strong>, and <strong>Lig Picnic</strong>. Recently, we released our own film <strong>Taraharu</strong>.
           </p>
           <p className="text-slate-300 text-lg leading-relaxed">
-            Our productions span theatre, films, music videos, brand videos, and advertising content. While primarily operating in Kathmandu, we serve clients throughout Nepal.
+            Our productions span theatre, movie, music videos, brand videos, and advertising content. While primarily operating in Kathmandu, we serve clients throughout Nepal.
           </p>
         </div>
 
