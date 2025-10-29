@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description: "Ways Private Limited is a full-service Nepali movie production company creating films, music videos, and cinematic content for brands and artists worldwide.",
   keywords: ["Nepali movie", "movie production", "Nepal films", "music video production", "Ways Private Limited"],
   metadataBase: new URL("https://waysprivate.com.np"),
+ 
   openGraph: {
     title: "Nepali Movie Production | Ways Private Limited",
     description: "Full-service Nepali movie production company creating films, music videos, and cinematic content worldwide.",
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     description: "Creating films, music videos, and cinematic content for brands and artists worldwide.",
     images: ["/og-image.png"],
     creator: "@waysprivate",
+  },
+   other: {
+    'google-site-verification': 'k-WGKR7IdxrNB3lqGwB0-NPVfNU2xuN5rjP3Qied7-E',
   },
 };
 
