@@ -22,7 +22,7 @@ export default function TeamCard({ name, role, bio, facebook, linkedin, email, p
     >
       <div className="flex flex-col items-center text-center">
         <div className="relative w-32 h-32 mb-4">
-          <Image src={photo} alt={name} fill className="rounded-full object-cover" />
+          <Image src={photo} alt={name} fill sizes="(max-width: 30vw)" className="rounded-full object-cover"  priority />
         </div>
         <h3 className="text-xl font-bold text-white">{name}</h3>
         <p className="text-indigo-400 font-medium">{role}</p>

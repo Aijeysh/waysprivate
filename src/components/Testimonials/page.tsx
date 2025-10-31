@@ -82,6 +82,7 @@ export default function TestimonialsSection() {
           <button
             onClick={prevSlide}
             className="absolute left-0 p-3 bg-slate-800/70 hover:bg-slate-700 rounded-full shadow-lg transition"
+            aria-label="Go to previous testimonial"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -98,7 +99,7 @@ export default function TestimonialsSection() {
             <p className="text-slate-300 italic mb-6">
               “{testimonials[index].feedback}”
             </p>
-            <h4 className="text-lg font-semibold">{testimonials[index].name}</h4>
+            <h3 className="text-lg font-semibold">{testimonials[index].name}</h3>
             <p className="text-sm text-slate-400">{testimonials[index].role}</p>
           </motion.div>
 
@@ -106,6 +107,7 @@ export default function TestimonialsSection() {
           <button
             onClick={nextSlide}
             className="absolute right-0 p-3 bg-slate-800/70 hover:bg-slate-700 rounded-full shadow-lg transition"
+            aria-label="Go to next testimonial"
           >
             <ChevronRight className="w-6 h-6" />
           </button>

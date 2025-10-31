@@ -1,10 +1,49 @@
 // src/app/contact/page.tsx
+import { Metadata } from "next";
 import ContactForm from "./ContactForm";
 
-export const metadata = {
-  title: "Contact Us | Ways Private Limited",
+
+export const metadata: Metadata = {
+  title: "Contact Ways Private Limited | Nepali Movie Production",
   description:
-    "Get in touch with Ways Private Limited — your creative and digital partner for movies, films, branding, and digital experiences. Reach us via email, phone, or our Kathmandu office.",
+    "Get in touch with Ways Private Limited, Nepal’s leading movie production company for films, music videos, and cinematic content.",
+  keywords: [
+    "Ways Private Limited",
+    "Contact Ways",
+    "Nepali Movie Production",
+    "Film Production Nepal",
+  ],
+  metadataBase: new URL("https://waysprivate.com.np"),
+  openGraph: {
+    title: "Contact Ways Private Limited | Nepali Movie Production",
+    description:
+      "Contact Ways Private Limited, Nepal’s leading movie production company for films, music videos, and cinematic content.",
+    url: "https://waysprivate.com.np/contact",
+    siteName: "Ways Private Limited",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Ways Private Limited | Nepali Movie Production",
+    description:
+      "Reach out to Ways Private Limited for Nepali movie production, music videos, and cinematic content.",
+    images: ["/og-image.png"],
+    creator: "@waysprivate",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  other: {
+    "google-site-verification": "k-WGKR7IdxrNB3lqGwB0-NPVfNU2xuN5rjP3Qied7-E",
+  },
 };
 
 export default function ContactPage() {

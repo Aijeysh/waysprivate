@@ -1,9 +1,11 @@
 // src/app/layout.tsx
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/page";
 import Footer from "@/components/Footer/page";
+import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,37 +17,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Nepali Movie Production | Ways Private Limited",
-  description: "Ways Private Limited is a full-service Nepali movie production company creating films, music videos, and cinematic content for brands and artists worldwide.",
-  keywords: ["Nepali movie", "movie production", "Nepal films", "music video production", "Ways Private Limited"],
-  metadataBase: new URL("https://waysprivate.com.np"),
- 
-  openGraph: {
-    title: "Nepali Movie Production | Ways Private Limited",
-    description: "Full-service Nepali movie production company creating films, music videos, and cinematic content worldwide.",
-    url: "https://waysprivate.com.np",
-    siteName: "Ways Private Limited",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Nepali Movie Production | Ways Private Limited",
-    description: "Creating films, music videos, and cinematic content for brands and artists worldwide.",
-    images: ["/og-image.png"],
-    creator: "@waysprivate",
-  },
-   other: {
-    'google-site-verification': 'k-WGKR7IdxrNB3lqGwB0-NPVfNU2xuN5rjP3Qied7-E',
-  },
-};
+export const metadata : Metadata ={
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+} 
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Global Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-LS2EGD51NJ"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-LS2EGD51NJ', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
         <Navbar />
         {children}
         <Footer />

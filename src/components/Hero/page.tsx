@@ -16,7 +16,7 @@ export default function Hero() {
           We are a full-service Nepali movie production company creating movies, feature films, music videos, and cinematic content for brands and artists worldwide.
         </p>
         <div className="mt-8">
-          <Link href="/contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition">
+          <Link href="/contact" aria-label="Go to Contact Page to work with us" about="Contact Us Page Link" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition">
             Work with us
           </Link>
         </div>

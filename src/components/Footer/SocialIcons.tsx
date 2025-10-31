@@ -23,6 +23,9 @@ export default function SocialIcons() {
           whileHover={{ scale: 1.2, rotate: 10 }}
           transition={{ type: "spring", stiffness: 300 }}
           className="transition-opacity hover:opacity-80"
+          about={icon.name + " Link"}
+          content={icon.name + " profile"}
+          aria-label={"Go to" + icon.name}
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
             {icon.svg}

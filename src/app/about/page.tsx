@@ -1,11 +1,51 @@
 // src/app/about/page.tsx
 import Image from "next/image";
 import TeamCard from "@/components/About/TeamCard";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "About Us | Ways Private Limited",
-  description: "Ways Private Limited - Theatre & Film Production Company in Kathmandu, Nepal",
+export const metadata: Metadata = {
+  title: "About Ways Private Limited | Nepali Movie Makers",
+  description:
+    "Ways Private Limited is a full-service Nepali movie production company specializing in storytelling, music videos, and cinematic creations.",
+  keywords: [
+    "Ways Private Limited",
+    "Nepali Movie Makers",
+    "Movie Production Nepal",
+    "Film Studio Nepal",
+  ],
+  metadataBase: new URL("https://waysprivate.com.np"),
+  openGraph: {
+    title: "About Ways Private Limited | Nepali Movie Makers",
+    description:
+      "Learn about Ways Private Limited, a Nepali movie production company creating films, music videos, and cinematic content for global audiences.",
+    url: "https://waysprivate.com.np/about",
+    siteName: "Ways Private Limited",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Ways Private Limited | Nepali Movie Makers",
+    description:
+      "Learn about Ways Private Limited, a Nepali movie production company creating films, music videos, and cinematic content.",
+    images: ["/og-image.png"],
+    creator: "@waysprivate",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  other: {
+    "google-site-verification": "k-WGKR7IdxrNB3lqGwB0-NPVfNU2xuN5rjP3Qied7-E",
+  },
 };
+
 
 const team = [
   {

@@ -16,10 +16,10 @@ const random = (min: number, max: number) => Math.random() * (max - min) + min;
 
 export default function HeroAnimations() {
   const images = [
-    { src: "/Movie_Taraharu_by_Ways_Private_Limited.jpeg", alt: "Movie Tarharu Poster" },
-    { src: "/Kaancho_Dhaago.jpg", alt: "Kaancho Dhaago Poster" },
-    { src: "/Daraudi_Ko_Paani.jpg", alt: "Daraudi Ko Paani Poster" },
-    { src: "/Dhalkeko_Saalaijo.jpg", alt: "Dhalkeko Saalaijo Poster" },
+    { src: "/Movie_Taraharu_by_Ways_Private_Limited.jpeg", alt: "Nepali Movie Tarharu Poster" },
+    { src: "/Kaancho_Dhaago.jpg", alt: "Nepali Play Kaancho Dhaago Poster" },
+    { src: "/Daraudi_Ko_Paani.jpg", alt: "Nepali Play Daraudi Ko Paani Poster" },
+    { src: "/Dhalkeko_Saalaijo.jpg", alt: "Neplai Play Dhalkeko Saalaijo Poster" },
   ];
 
   // Client-side only streaks

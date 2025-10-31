@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Company Info */}
         <div className="space-y-4">
-          <h5 className="text-2xl font-bold text-white">Ways Private Limited</h5>
+          <h2 className="text-2xl font-bold text-white">Ways Private Limited</h2>
           <p className="text-slate-400 max-w-sm">
             We craft cinematic experiences — from movies, feature films and music videos to creative content for brands and artists worldwide.
           </p>
@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Quick Links */}
         <div className="grid grid-cols-2 gap-10">
           <div>
-            <h6 className="font-semibold text-white mb-4">Company</h6>
+            <p className="font-semibold text-white mb-4">Company</p>
             <ul className="space-y-2 text-slate-400 text-sm">
               <li><a href="#">About Us</a></li>
               <li><a href="#">Services</a></li>
@@ -26,7 +26,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h6 className="font-semibold text-white mb-4">Resources</h6>
+            <p className="font-semibold text-white mb-4">Resources</p>
             <ul className="space-y-2 text-slate-400 text-sm">
               <li><a href="#">Blogs</a></li>
               <li><a href="#">FAQs</a></li>
@@ -38,7 +38,7 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div className="space-y-4">
-          <h6 className="font-semibold text-white mb-4">Contact</h6>
+          <p className="font-semibold text-white mb-4">Contact</p>
           <p className="text-slate-400 text-sm">Email: waysprivateltd@gmail.com</p>
           <p className="text-slate-400 text-sm">Phone: +977 9803008298</p>
           <p className="text-slate-400 text-sm">Kathmandu, Nepal</p>
