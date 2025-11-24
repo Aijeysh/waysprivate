@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "Ways Private",
     "Ways Private Limited",
   ],
-  metadataBase: new URL("https://waysprivate.com.np"),
+  metadataBase: new URL("https://www.waysprivate.com.np"),
   openGraph: {
     title: "Nepali Movie Production | Ways Private Limited",
     description:
       "Full-service Nepali movie production company creating films, music videos, and cinematic content worldwide.",
-    url: "https://waysprivate.com.np",
+    url: "https://www.waysprivate.com.np",
     siteName: "Ways Private Limited",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     locale: "en_US",
