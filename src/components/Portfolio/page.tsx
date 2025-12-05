@@ -28,10 +28,10 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: 3,
-    title: "Daraudi ko Paani",
+    title: "Sathi Sathi Aaideuna",
     overview: "A theatre play showcasing life learning lesson",
-    imageSrc: "/Daraudi_Ko_Paani.jpg",
-    link: "/portfolio/daraudi-ko-paani",
+    imageSrc: "/Sathi_Sathi_Aaideuna.jpg",
+    link: "/portfolio/sath-sathi-aaideuna",
   },
   {
     id: 4,
@@ -71,14 +71,14 @@ const Portfolio: React.FC = () => {
           <Link
             key={item.id}
             href={item.link}
-            className="relative group cursor-pointer overflow-hidden rounded-2xl"
+            className="relative group cursor-pointer overflow-hidden rounded-2xl bg-neutral-800"
           >
             <Image
               src={item.imageSrc}
               alt={item.title}
               width={400}
               height={400}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full  object-contain transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-center p-4">
               <h3 className="text-xl font-bold mb-2">{item.title}</h3>
