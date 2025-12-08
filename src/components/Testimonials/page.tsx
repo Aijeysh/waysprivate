@@ -177,7 +177,7 @@ export default function TestimonialsSection() {
                   {/* Testimonial Text */}
                   <div className="flex-1 text-center md:text-left">
                     <p className="text-lg md:text-xl text-slate-300 italic mb-6 leading-relaxed">
-                      {`"{currentTestimonial.feedback}"`}
+                     {"`"} {currentTestimonial.feedback}{`"`}
                     </p>
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-1">
