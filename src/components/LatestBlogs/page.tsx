@@ -21,6 +21,8 @@ import dbConnect from '@/lib/mongodb';
 import Blog from '@/models/Blog';
 import { BlogDocument } from '@/types/blog';
 
+
+export const dynamic = 'force-dynamic';
 /**
  * Fetch Latest Blogs from Database
  */

@@ -51,7 +51,7 @@ async function getBlog(slug: string): Promise<BlogDocument | null> {
         await dbConnect();
 
         // Find published blog by slug
-        const blog = await Blog.findOne({ slug, published: true }).lean();
+        const blog = await Blog.findOne({ slug, published: true, }).lean();
 
         if (!blog) return null;
 
@@ -135,6 +135,8 @@ export async function generateStaticParams() {
             slug: blog.slug,
         }));
     } catch (error) {
+        const errorMessage = error instanceof Error? error.message : 'An Error Occured';
+        console.log(errorMessage);
         return [];
     }
 }

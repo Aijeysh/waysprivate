@@ -52,6 +52,7 @@ export const metadata: Metadata = {
         creator: '@waysprivate',
     },
 };
+export const dynamic = 'force-dynamic';
 
 /**
  * Fetch Published Blogs from Database
