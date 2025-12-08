@@ -107,7 +107,6 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         if (!editor) return;
 
         const previousUrl = editor.getAttributes('link').href;
-        const previousRel = editor.getAttributes('link').rel;
 
         const url = window.prompt('URL', previousUrl);
         if (url === null) return;

@@ -106,7 +106,7 @@ export default async function LatestBlogs() {
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog, index) => (
+          {blogs.map((blog,index) => (
             <div
               key={blog._id}
               className="group hover-lift"

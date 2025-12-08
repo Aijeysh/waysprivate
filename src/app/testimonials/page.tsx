@@ -19,8 +19,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Metadata } from "next";
-
 /**
  * Testimonials Data
  * 
@@ -133,7 +131,7 @@ export default function TestimonialsPage() {
               className="p-6 rounded-xl bg-slate-800/70 border border-slate-700 shadow-lg backdrop-blur-lg text-left"
             >
               {/* Testimonial quote */}
-              <p className="text-slate-300 italic mb-4">{`"{t.feedback}"`}</p>
+              <p className="text-slate-300 italic mb-4">{`"`}{t.feedback}{`"`}</p>
                    {/* Client name */}
               <h4 className="text-lg font-semibold">{t.name}</h4>
 
