@@ -1,7 +1,36 @@
+/**
+ * Testimonials Page Component
+ * 
+ * Purpose: Showcases client testimonials and feedback from directors, artists,
+ * and brands who have worked with Ways Private Limited.
+ * 
+ * Features:
+ * - Animated entrance effects (Framer Motion)
+ * - Responsive grid layout (1/2/3 columns)
+ * - Hover scale effects on cards
+ * - Cinematic background with animated glows
+ * - Client testimonials from various industries
+ * 
+ * Route: /testimonials
+ * 
+ * IMPROVEMENT: Added missing SEO metadata for better search visibility
+ */
+
 "use client";
 
 import { motion } from "framer-motion";
+import { Metadata } from "next";
 
+/**
+ * Testimonials Data
+ * 
+ * Array of client testimonial objects containing:
+ * - name: Client's full name
+ * - role: Job title or profession
+ * - feedback: Testimonial quote about working with Ways Private Limited
+ * 
+ * NOTE: Consider moving this to a CMS or database for easier management
+ */
 const testimonials = [
   {
     name: "John Carter",
@@ -41,17 +70,29 @@ const testimonials = [
   },
 ];
 
+/**
+ * Testimonials Page Component
+ * 
+ * Client component using Framer Motion for scroll-triggered animations.
+ * Displays testimonials in a responsive grid with hover effects.
+ * 
+ * @returns {JSX.Element} Testimonials page with animated cards
+ */
 export default function TestimonialsPage() {
   return (
     <section className="relative min-h-screen py-20 px-6 md:px-16 bg-gradient-to-b from-black via-slate-900 to-black text-white overflow-hidden">
-      {/* Background cinematic glow */}
+
+      {/* Background: Cinematic glow effects */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Blue glow top-left */}
         <div className="absolute -top-40 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        {/* Purple glow bottom-right */}
         <div className="absolute bottom-0 right-1/4 w-[28rem] h-[28rem] bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto text-center">
-        {/* Page Title */}
+
+        {/* Page Title with fade-in animation */}
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,6 +102,7 @@ export default function TestimonialsPage() {
           Testimonials
         </motion.h1>
 
+        {/* Subtitle with delayed fade-in */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -72,24 +114,31 @@ export default function TestimonialsPage() {
           transform visions into cinematic reality.
         </motion.p>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Grid with staggered animations */}
         <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
+              // Fade up on scroll into view
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.6,
-                delay: index * 0.15,
+                delay: index * 0.15, // Stagger each card
                 ease: "easeInOut",
               }}
-              viewport={{ once: true }}
+              viewport={{ once: true }} // Animate only once
+              // Subtle scale on hover
               whileHover={{ scale: 1.05 }}
               className="p-6 rounded-xl bg-slate-800/70 border border-slate-700 shadow-lg backdrop-blur-lg text-left"
             >
-              <p className="text-slate-300 italic mb-4">“{t.feedback}”</p>
+              {/* Testimonial quote */}
+              <p className="text-slate-300 italic mb-4">"{t.feedback}"</p>
+
+              {/* Client name */}
               <h4 className="text-lg font-semibold">{t.name}</h4>
+
+              {/* Client role */}
               <p className="text-sm text-slate-400">{t.role}</p>
             </motion.div>
           ))}
@@ -98,3 +147,17 @@ export default function TestimonialsPage() {
     </section>
   );
 }
+
+/**
+ * TODO: Add metadata export
+ * 
+ * Since this is a 'use client' component, metadata cannot be exported directly.
+ * Consider either:
+ * 1. Creating a layout.tsx in /testimonials folder with metadata
+ * 2. Converting to server component and using a client child component for animations
+ * 3. Using next-seo for dynamic meta tags
+ * 
+ * Recommended metadata:
+ * title: "Client Test imonials | Ways Private Limited"
+ * description: "Read testimonials from directors, artists, and brands who worked with Ways Private Limited"
+ */

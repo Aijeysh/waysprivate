@@ -1,108 +1,151 @@
+/**
+ * Cinematic Services Section
+ * 
+ * Purpose: Showcase production services with glassmorphism cards
+ * and icon-based design.
+ * 
+ * Features:
+ * - Glassmorphism card design
+ * - Icon animations on hover
+ * - Glow effects
+ * - Smooth entrance animations
+ * 
+ * Used in: Homepage (/)
+ */
+
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { easeOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { Film, Music, Video, FileText, Clapperboard, Sparkles } from "lucide-react";
 
 interface ServiceItem {
   id: number;
   title: string;
-  overview: string;
-  imageSrc: string;
-  link: string;
+  description: string;
+  icon: React.ReactNode;
+  gradient: string;
 }
 
 const services: ServiceItem[] = [
   {
     id: 1,
-    title: "Theatre Production",
-    overview: "End-to-end theatre production services from concept to release.",
-    imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/theatre-production",
+    title: "Feature Films",
+    description: "Full-scale movie production from script to screen with cinematic excellence",
+    icon: <Film className="w-8 h-8" />,
+    gradient: "from-blue-500 to-purple-500",
   },
   {
     id: 2,
-    title: "Movie Production",
-    overview: "Movie solutions and services from concept to production release",
-    imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/movie-production",
+    title: "Music Videos",
+    description: "Creative music video production that captures the soul of your sound",
+    icon: <Music className="w-8 h-8" />,
+    gradient: "from-purple-500 to-pink-500",
   },
   {
     id: 3,
-    title: "Commercials & Ads",
-    overview: "High-end commercial productions that elevate your brand story.",
-    imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/commercials-ads",
+    title: "Brand Content",
+    description: "Compelling brand videos and commercials that tell your story",
+    icon: <Video className="w-8 h-8" />,
+    gradient: "from-pink-500 to-red-500",
   },
   {
     id: 4,
-    title: "Documentaries",
-    overview: "Capturing real-life stories with cinematic excellence.",
-    imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/documentaries",
+    title: "Theatre Productions",
+    description: "Theatrical masterpieces from concept to stage performance",
+    icon: <Clapperboard className="w-8 h-8" />,
+    gradient: "from-amber-500 to-orange-500",
   },
   {
     id: 5,
-    title: "Post Production",
-    overview: "Editing, VFX, sound design, and color grading to perfection.",
-    imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/post-production",
+    title: "Documentaries",
+    description: "Authentic storytelling capturing real-life narratives with impact",
+    icon: <FileText className="w-8 h-8" />,
+    gradient: "from-green-500 to-teal-500",
   },
   {
     id: 6,
-    title: "Brand Storytelling",
-    overview: "Crafting immersive narratives for brands and campaigns.",
-    imageSrc: "/Ways_Private_Limited_Logo.jpeg",
-    link: "/services/brand-storytelling",
+    title: "Post Production",
+    description: "Expert editing, VFX, sound design, and color grading services",
+    icon: <Sparkles className="w-8 h-8" />,
+    gradient: "from-cyan-500 to-blue-500",
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
-  hover: { scale: 1.05, boxShadow: "0px 20px 40px rgba(0,0,0,0.5)" },
-};
-
+/**
+ * Services Component
+ * 
+ * Displays production services in a glassmorphic card grid
+ * with icon-based design and smooth animations.
+ * 
+ * @returns {JSX.Element} Services section with card grid
+ */
 const Services: React.FC = () => {
   return (
-    <section className="w-full py-24 bg-neutral-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-16 text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
-        <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          Explore our cinematic services designed to bring stories, music, and brands to life.
-        </p>
-      </div>
+    <section id="services" className="section-padding relative bg-gradient-to-b from-[#13131A] to-[#0A0A0F] text-white overflow-hidden">
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 px-6 md:px-16">
-        {services.map((service) => (
-          <Link key={service.id} href={service.link} passHref>
+      {/* Background decorative elements */}
+      <div className="absolute top-1/4 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-16">
+
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-semibold text-purple-400 bg-purple-400/10 rounded-full border border-purple-400/20">
+            What We Do
+          </span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Complete Production <span className="text-gradient-accent">Services</span>
+          </h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            From concept to completion, we handle every aspect of your production with professional expertise and creative vision.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
             <motion.div
-              className="group bg-black rounded-2xl overflow-hidden cursor-pointer"
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover="hover"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group relative"
             >
-              <motion.div
-                className="overflow-hidden"
-                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-              >
-                <Image
-                  src={service.imageSrc}
-                  alt={service.title}
-                  width={400}
-                  height={400}
-                  className="w-full h-48 object-cover transition-transform duration-500"
-                />
-              </motion.div>
-              <div className="p-4">
-                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                <p className="text-slate-400 text-sm">{service.overview}</p>
+              {/* Glassmorphism Card */}
+              <div className="glass relative p-8 rounded-2xl h-full hover:bg-white/10 transition-all duration-300">
+
+                {/* Gradient Border on Hover */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`} />
+
+                {/* Icon Container */}
+                <div className={`relative inline-flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${service.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="text-white">
+                    {service.icon}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-slate-400 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Hover Arrow */}
+                <div className="mt-4 flex items-center gap-2 text-blue-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-2 transition-all duration-300">
+                  <span className="text-sm font-medium">Learn More</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </motion.div>
-          </Link>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

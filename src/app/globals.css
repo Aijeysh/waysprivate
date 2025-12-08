@@ -1,20 +1,208 @@
 @import "tailwindcss";
-:root {
-  --background: #ffffff72;
-  --foreground: #000000;
-}
 
+/* ============================================
+   CINEMATIC DESIGN SYSTEM - Ways Private Limited
+   ============================================ */
+
+:root {
+  /* Primary Colors - Cinema Blues */
+  --primary: #1E40AF;
+  --primary-light: #3B82F6;
+  --primary-dark: #1E3A8A;
+  
+  /* Accent Colors - Film Gold */
+  --accent: #F59E0B;
+  --accent-light: #FCD34D;
+  --accent-dark: #D97706;
+  
+  /* Background - Dark Cinema */
+  --background: #0A0A0F;
+  --surface: #13131A;
+  --surface-light: #1F1F29;
+  --surface-lighter: #2A2A35;
+  
+  /* Text Colors */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  /* Shadows & Effects */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.3);
+  --shadow-glow-accent: 0 0 30px rgba(245, 158, 11, 0.3);
+  --shadow-dramatic: 0 25px 50px rgba(0, 0, 0, 0.5);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  --gradient-accent: linear-gradient(135deg, #D97706 0%, #FCD34D 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%);
+  
+  /* Animation Timing */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Spacing */
+  --spacing-section: clamp(4rem, 10vw, 8rem);
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --foreground: #ededed;
+    --background: #0A0A0F;
+    --foreground: #F8FAFC;
   }
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
 }
 
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Gradient Text */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow Effects */
+.glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.glow-accent {
+  box-shadow: var(--shadow-glow-accent);
+}
+
+/* Hover Lift */
+.hover-lift {
+  transition: transform var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ============================================
+   SECTION SPACING
+   ============================================ */
+
+.section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
