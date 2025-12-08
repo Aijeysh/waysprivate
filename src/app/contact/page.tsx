@@ -75,11 +75,11 @@ export default function ContactPage() {
         {/* Page Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-            Let's Connect
+           {` Let's`} Connect
           </h1>
           <p className="mt-4 text-slate-300 text-lg max-w-2xl mx-auto">
-            Whether you're a production company, foreign movie producer, artist,
-            or creator — we'd love to hear from you. Share your vision, and let's
+            Whether {`you're`} a production company, foreign movie producer, artist,
+            or creator; {`we'd`} love to hear from you. Share your vision, and {`let's`}
             make something remarkable together.
           </p>
         </div>

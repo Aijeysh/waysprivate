@@ -110,7 +110,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Ways Private Limited stands as Nepal's beacon of cinematic excellence—where passion meets craft, and visions transform into unforgettable experiences.
+            {`Ways Private Limited stands as Nepal's beacon of cinematic excellence—where passion meets craft, and visions transform into unforgettable experiences.`}
           </p>
         </div>
       </section>
@@ -166,11 +166,11 @@ export default function AboutPage() {
 
               <div className="space-y-4 text-slate-300 text-lg leading-relaxed">
                 <p>
-                  Founded in <strong className="text-white">2007</strong>, Ways Private Limited emerged from a passion for storytelling that transcends boundaries. What began as a theatrical endeavor has evolved into Nepal's premier production powerhouse.
+                  Founded in <strong className="text-white">2007</strong>, Ways Private Limited emerged from a passion for storytelling that transcends boundaries. What began as a theatrical endeavor has evolved into {`Nepal's`} premier production powerhouse.
                 </p>
 
                 <p>
-                  Our portfolio spans <strong className="text-white">acclaimed theatre productions</strong> including <em>Daraudi ko Paani</em>, <em>Dhalkeko Saalaijo</em>, <em>Bullet and the Buddha</em>, <em>Katha Express</em>, and <em>Lig Picnic</em>. We've proudly transitioned to cinema with our feature film <strong className="text-white">"Taraharu"</strong>.
+                  Our portfolio spans <strong className="text-white">acclaimed theatre productions</strong> including <em>Daraudi ko Paani</em>, <em>Dhalkeko Saalaijo</em>, <em>Bullet and the Buddha</em>, <em>Katha Express</em>, and <em>Lig Picnic</em>. {`We've`} proudly transitioned to cinema with our feature film <strong className="text-white">{`Taraharu`}</strong>.
                 </p>
 
                 <p>

@@ -56,7 +56,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-400 mb-6 leading-relaxed">
-              Nepal's premier movie production company crafting cinematic masterpieces since 2007.
+              {`Nepal's premier movie production company crafting cinematic masterpieces since 2007.`}
             </p>
 
             {/* Social Icons */}
