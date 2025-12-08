@@ -67,7 +67,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p className="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Nepal's premier movie production company crafting cinematic masterpieces,
+          {`Nepal's`} premier movie production company crafting cinematic masterpieces,
           music videos, and brand stories that captivate audiences worldwide.
         </p>
 

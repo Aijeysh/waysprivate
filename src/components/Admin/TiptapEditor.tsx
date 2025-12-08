@@ -72,8 +72,9 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         fileInput.type = 'file';
         fileInput.accept = 'image/*';
 
-        fileInput.onchange = async (e: any) => {
-            const file = e.target.files[0];
+        fileInput.onchange = async (e: Event) => {
+            const target = e.target as HTMLInputElement;
+            const file = target.files?.[0];
             if (!file) return;
 
             const formData = new FormData();

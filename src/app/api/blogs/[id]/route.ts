@@ -22,9 +22,10 @@ export async function GET(
         }
 
         return NextResponse.json({ success: true, data: blog });
-    } catch (error: any) {
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message: 'An error Occured';
         return NextResponse.json(
-            { success: false, error: error.message },
+            { success: false, error: errorMessage },
             { status: 500 }
         );
     }
@@ -73,18 +74,21 @@ export async function PUT(
         }
 
         return NextResponse.json({ success: true, data: blog });
-    } catch (error: any) {
-        if (error.code === 11000) {
-            return NextResponse.json(
-                { success: false, error: 'A blog with this slug already exists' },
-                { status: 400 }
-            );
-        }
+    } catch (error) {
+    // Check for MongoDB duplicate key error
+    if (error && typeof error === 'object' && 'code' in error && error.code === 11000) {
         return NextResponse.json(
-            { success: false, error: error.message },
-            { status: 500 }
+            { success: false, error: 'A blog with this slug already exists' },
+            { status: 400 }
         );
     }
+    
+    const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    return NextResponse.json(
+        { success: false, error: errorMessage },
+        { status: 500 }
+    );
+}
 }
 
 // DELETE /api/blogs/[id] - Delete a blog by ID (admin only)
@@ -117,9 +121,10 @@ export async function DELETE(
         }
 
         return NextResponse.json({ success: true, data: {} });
-    } catch (error: any) {
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message: 'An error Occured';
         return NextResponse.json(
-            { success: false, error: error.message },
+            { success: false, error: errorMessage },
             { status: 500 }
         );
     }

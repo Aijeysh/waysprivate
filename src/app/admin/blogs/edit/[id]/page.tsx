@@ -7,6 +7,7 @@ import { JSONContent } from '@tiptap/react';
 import { slugify } from '@/lib/slugify';
 import { Save, Eye } from 'lucide-react';
 import { BlogDocument } from '@/types/blog';
+import Image from 'next/image';
 
 const TiptapEditor = dynamic(() => import('@/components/Admin/TiptapEditor'), {
     ssr: false,
@@ -65,7 +66,9 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
                 } else {
                     setError('Failed to load blog');
                 }
-            } catch (err) {
+            } catch (error) {
+                const errorMessage = error instanceof Error? error.message : 'Failed to load blog';
+            console.log(errorMessage);
                 setError('Failed to load blog');
             } finally {
                 setIsLoading(false);
@@ -147,7 +150,9 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
             } else {
                 setError(data.error);
             }
-        } catch (err) {
+        } catch (error) {
+            const errorMessage = error instanceof Error? error.message : 'Failed to update blog post';
+            console.log(errorMessage);
             setError('Failed to update blog post');
         } finally {
             setIsSubmitting(false);
@@ -245,9 +250,11 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
                         className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                     />
                     {featuredImage && (
-                        <img
+                        <Image
                             src={featuredImage}
                             alt="Featured"
+                            width={400}
+                            height={400}
                             className="mt-3 max-w-xs rounded-lg shadow-md"
                         />
                     )}

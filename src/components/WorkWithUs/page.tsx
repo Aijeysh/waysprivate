@@ -77,7 +77,7 @@ const WorkWithUs: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Let's Bring Your Vision
+         {`Let's `}Bring Your Vision
           <br />
           <span className="text-gradient bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">
             To Life

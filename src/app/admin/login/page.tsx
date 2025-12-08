@@ -76,7 +76,9 @@ export default function AdminLoginPage() {
                 // Display error message
                 setError(data.error || 'Login failed');
             }
-        } catch (err) {
+        } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : `An error occured`;
+            console.log(errorMessage);
             setError('An error occurred. Please try again.');
         } finally {
             setIsLoading(false);

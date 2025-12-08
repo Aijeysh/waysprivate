@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { JSONContent } from '@tiptap/react';
 import { slugify } from '@/lib/slugify';
 import { Save, Eye } from 'lucide-react';
+import Image from 'next/image';
 
 // Dynamic import for TiptapEditor (client-side only)
 const TiptapEditor = dynamic(() => import('@/components/Admin/TiptapEditor'), {
@@ -110,7 +111,9 @@ export default function NewBlogPage() {
             } else {
                 setError(data.error);
             }
-        } catch (err) {
+        } catch (error) {
+            const errorMessage = error instanceof Error? error.message : 'Failed to create blog post';
+            console.log(errorMessage);
             setError('Failed to create blog post');
         } finally {
             setIsSubmitting(false);
@@ -199,9 +202,11 @@ export default function NewBlogPage() {
                         className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                     />
                     {featuredImage && (
-                        <img
+                        <Image
                             src={featuredImage}
                             alt="Featured"
+                            width={400}
+                            height={400}
                             className="mt-3 max-w-xs rounded-lg shadow-md"
                         />
                     )}

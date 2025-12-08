@@ -65,7 +65,9 @@ export default function AdminBlogsPage() {
             } else {
                 setError(data.error);
             }
-        } catch (err) {
+        } catch (error) {
+            const errorMessage = error instanceof Error? error.message : 'Failed to fetch Blog';
+            console.log(errorMessage);
             setError('Failed to fetch blogs');
         } finally {
             setIsLoading(false);
@@ -100,7 +102,9 @@ export default function AdminBlogsPage() {
             } else {
                 alert(data.error);
             }
-        } catch (err) {
+        } catch (error) {
+            const errorMessage = error instanceof Error? error.message : 'Failed to delete blog';
+            console.log(errorMessage);
             alert('Failed to delete blog');
         }
     };

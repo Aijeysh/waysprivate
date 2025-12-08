@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
         const skip = (page - 1) * limit;
 
         // Build query
-        const query: any = {};
+        const query: { published?: boolean } = {};
         if (!includeUnpublished || !isAdmin) {
             query.published = true;
         }
@@ -43,12 +43,13 @@ export async function GET(request: NextRequest) {
                 totalPages: Math.ceil(total / limit),
             },
         });
-    } catch (error: any) {
-        return NextResponse.json(
-            { success: false, error: error.message },
-            { status: 500 }
-        );
-    }
+    } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    return NextResponse.json(
+        { success: false, error: errorMessage },
+        { status: 500 }
+    );
+}
 }
 
 // POST /api/blogs - Create a new blog (admin only)
@@ -80,16 +81,19 @@ export async function POST(request: NextRequest) {
             { success: true, data: blog },
             { status: 201 }
         );
-    } catch (error: any) {
-        if (error.code === 11000) {
-            return NextResponse.json(
-                { success: false, error: 'A blog with this slug already exists' },
-                { status: 400 }
-            );
-        }
+    }  catch (error) {
+    // Check for MongoDB duplicate key error
+    if (error && typeof error === 'object' && 'code' in error && error.code === 11000) {
         return NextResponse.json(
-            { success: false, error: error.message },
-            { status: 500 }
+            { success: false, error: 'A blog with this slug already exists' },
+            { status: 400 }
         );
     }
+    
+    const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    return NextResponse.json(
+        { success: false, error: errorMessage },
+        { status: 500 }
+    );
+}
 }

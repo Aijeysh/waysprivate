@@ -48,6 +48,7 @@ export function verifyToken(token: string): AdminUser | null {
         const decoded = jwt.verify(token, JWT_SECRET) as AdminUser;
         return decoded;
     } catch (error) {
+        console.log(error);
         return null;
     }
 }

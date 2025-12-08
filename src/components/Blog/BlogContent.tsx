@@ -103,7 +103,7 @@ export default function BlogContent({ content }: BlogContentProps) {
                 );
 
             case 'text':
-                let text = node.text || '';
+                const text = node.text || '';
                 let element: React.ReactElement | string = text;
 
                 if (node.marks) {
