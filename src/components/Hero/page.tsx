@@ -58,10 +58,10 @@ export default function Hero() {
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6">
           <span className="block text-white mb-2">
-            From Script to Screen
+            Nepali Film Production
           </span>
           <span className="block text-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent gradient-animate">
-            We Bring Stories to Life
+            Bringing Stories to Life
           </span>
         </h1>
 

@@ -17,11 +17,44 @@ export async function POST(request: NextRequest) {
         }
 
         const formData = await request.formData();
-        const file = formData.get('file') as File;
+        const file = formData.get('file');
 
         if (!file) {
             return NextResponse.json(
                 { success: false, error: 'No file provided' },
+                { status: 400 }
+            );
+        }
+
+        if (typeof file === 'string') {
+            return NextResponse.json(
+                { success: false, error: 'Invalid file type - received string' },
+                { status: 400 }
+            );
+        }
+
+        // Validate file type - ONLY JPG, JPEG, and PNG
+        const validTypes = ['image/jpeg', 'image/png'];
+        if (!validTypes.includes(file.type)) {
+            return NextResponse.json(
+                { 
+                    success: false, 
+                    error: 'Invalid file type. Only JPG, JPEG, and PNG images are allowed.' 
+                },
+                { status: 400 }
+            );
+        }
+
+        // Additional validation: check file extension
+        const fileExtension = file.name.split('.').pop()?.toLowerCase();
+        const validExtensions = ['jpg', 'jpeg', 'png'];
+        
+        if (!fileExtension || !validExtensions.includes(fileExtension)) {
+            return NextResponse.json(
+                { 
+                    success: false, 
+                    error: 'Invalid file extension. Only .jpg, .jpeg, and .png are allowed.' 
+                },
                 { status: 400 }
             );
         }
@@ -51,8 +84,12 @@ export async function POST(request: NextRequest) {
             data: { url: publicUrl },
         });
     } catch (error) {
+        console.error('Upload error:', error);
         return NextResponse.json(
-            { success: false, error },
+            { 
+                success: false, 
+                error: error instanceof Error ? error.message : 'Upload failed' 
+            },
             { status: 500 }
         );
     }

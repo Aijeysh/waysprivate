@@ -94,9 +94,9 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                <Link href="/film-production" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 group">
                   <span className="w-0 h-px bg-blue-400 group-hover:w-4 transition-all duration-300" />
-                  Home
+                  Film Production
                 </Link>
               </li>
               <li>
