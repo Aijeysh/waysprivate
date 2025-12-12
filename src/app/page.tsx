@@ -8,12 +8,11 @@
  * - Hero: Main headline with animated visuals and primary CTA
  * - Portfolio: Showcase of recent movies and projects
  * - Services: Overview of production services offered
- * - Statistics: Company achievements and metrics
  * - LatestBlogs: Recent blog posts and updates
  * - Testimonials: Client reviews and feedback
  * - WorkWithUs: Contact and collaboration CTA
  * 
- * SEO: Optimized for "Nepali Movie Production" and related keywords
+ * SEO: Optimized for "Nepali Film Production" and related keywords
  */
 
 import Hero from "@/components/Hero/page";
@@ -32,26 +31,33 @@ import type { Metadata } from "next";
  * - Keywords targeting Nepali movie production industry
  * - Open Graph tags for social media sharing (Facebook, LinkedIn)
  * - Twitter Card configuration for Twitter sharing
- * - Base URL for canonical links
+ * - Canonical URL for SEO
+ * - Robots meta for search engine crawling
  */
 export const metadata: Metadata = {
   // Primary SEO meta tags
-  title: "Nepali Movie Production | Ways Private Limited",
+  title: "Film Production Company | Nepali Movies | Ways Pvt Ltd",
   description:
-    "Ways Private Limited is Nepal's leading movie production company creating Nepali movies, music videos, and cinematic content for global audiences.",
+    "Ways Private Limited is Nepal's leading film production company specializing in Nepali movie production, music videos, brand films, documentaries, and cinematic storytelling for global audiences.",
 
   // Keywords for search engine optimization
-  keywords: [
-    "Nepali Movie",
-    "New Nepali Movie",
-    "Movie Making Nepal",
-    "Ways",
-    "Ways Private",
-    "Ways Private Limited",
-  ],
+  keywords: "Film Production Company Nepal, Nepali Movie Production, Movie Company Nepal, Nepali Film Production, Video Production Nepal, Ways Private Limited",
 
   // Base URL for all relative paths
   metadataBase: new URL("https://www.waysprivate.com.np"),
+
+  // Robots meta tags
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 
   // Open Graph metadata for social media sharing
   openGraph: {
@@ -60,7 +66,14 @@ export const metadata: Metadata = {
       "Full-service Nepali movie production company creating films, music videos, and cinematic content worldwide.",
     url: "https://www.waysprivate.com.np",
     siteName: "Ways Private Limited",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [
+      { 
+        url: "/Ways_Private_Limited_Logo.jpeg", 
+        width: 1200, 
+        height: 630,
+        alt: "Ways Private Limited - Nepali Movie Production Company"
+      }
+    ],
     locale: "en_US",
     type: "website",
   },
@@ -71,9 +84,57 @@ export const metadata: Metadata = {
     title: "Nepali Movie Production | Ways Private Limited",
     description:
       "Creating films, music videos, and cinematic content for brands and artists worldwide.",
-    images: ["/og-image.png"],
+    images: ["/Ways_Private_Limited_Logo.jpeg"],
     creator: "@waysprivate",
   },
+};
+
+/**
+ * Homepage-Specific JSON-LD Structured Data
+ * 
+ * This complements the site-wide JSON-LD in layout.tsx by providing
+ * page-specific information for the homepage. This includes:
+ * - Specific WebPage schema for the homepage
+ * - Homepage breadcrumb navigation
+ * 
+ * The site-wide schemas (Organization, LocalBusiness, WebSite, Service, FAQPage)
+ * are defined in layout.tsx and apply to all pages.
+ */
+const homepageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    // Homepage-Specific WebPage Schema
+    {
+      "@type": "WebPage",
+      "@id": "https://www.waysprivate.com.np/#homepage",
+      "url": "https://www.waysprivate.com.np",
+      "name": "Film Production Company | Nepali Movies | Ways Pvt Ltd",
+      "description": "Ways Private Limited is Nepal's leading film production company specializing in Nepali movie production, music videos, brand films, documentaries, and cinematic storytelling for global audiences.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://www.waysprivate.com.np/#website" },
+      "about": { "@id": "https://www.waysprivate.com.np/#organization" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.waysprivate.com.np/Ways_Private_Limited_Logo.jpeg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+
+    // Homepage Breadcrumb
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.waysprivate.com.np/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.waysprivate.com.np"
+        }
+      ]
+    }
+  ]
 };
 
 /**
@@ -87,24 +148,32 @@ export const metadata: Metadata = {
  */
 export default function Home() {
   return (
-    <div className="flex flex-col overflow-hidden">
-      {/* Hero section with main headline and CTA */}
-      <Hero />
+    <>
+      {/* Homepage-Specific JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageJsonLd) }}
+      />
 
-      {/* Portfolio showcase of recent projects */}
-      <Portfolio />
+      <div className="flex flex-col overflow-hidden">
+        {/* Hero section with main headline and CTA */}
+        <Hero />
 
-      {/* Services offered by the company */}
-      <Services />
+        {/* Portfolio showcase of recent projects */}
+        <Portfolio />
 
-      {/* Latest blog posts and updates */}
-      <LatestBlogs />
+        {/* Services offered by the company */}
+        <Services />
 
-      {/* Client testimonials and reviews */}
-      <Testimonials />
+        {/* Latest blog posts and updates */}
+        <LatestBlogs />
 
-      {/* Final CTA section for collaboration */}
-      <WorkWithUs />
-    </div>
+        {/* Client testimonials and reviews */}
+        <Testimonials />
+
+        {/* Final CTA section for collaboration */}
+        <WorkWithUs />
+      </div>
+    </>
   );
 }
