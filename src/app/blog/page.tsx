@@ -57,6 +57,11 @@ export const dynamic = 'force-dynamic';
 /**
  * Fetch Published Blogs from Database
  */
+
+
+/// this is a blog page
+
+
 async function getBlogs(): Promise<BlogDocument[]> {
     try {
         await dbConnect();
