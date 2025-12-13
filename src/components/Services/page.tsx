@@ -15,11 +15,12 @@
 
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Film, Music, Video, FileText, Clapperboard, Sparkles } from "lucide-react";
 
 interface ServiceItem {
-  id: number;
+  id: string;
   title: string;
   description: string;
   icon: React.ReactNode;
@@ -28,42 +29,42 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 1,
+    id: "feature-films",
     title: "Feature Films",
     description: "Full-scale movie production from script to screen with cinematic excellence",
     icon: <Film className="w-8 h-8" />,
     gradient: "from-blue-500 to-purple-500",
   },
   {
-    id: 2,
+    id: "music-videos",
     title: "Music Videos",
     description: "Creative music video production that captures the soul of your sound",
     icon: <Music className="w-8 h-8" />,
     gradient: "from-purple-500 to-pink-500",
   },
   {
-    id: 3,
+    id: "brand-content",
     title: "Brand Content",
     description: "Compelling brand videos and commercials that tell your story",
     icon: <Video className="w-8 h-8" />,
     gradient: "from-pink-500 to-red-500",
   },
   {
-    id: 4,
+    id: "theatre-productions",
     title: "Theatre Productions",
     description: "Theatrical masterpieces from concept to stage performance",
     icon: <Clapperboard className="w-8 h-8" />,
     gradient: "from-amber-500 to-orange-500",
   },
   {
-    id: 5,
+    id: "documentaries",
     title: "Documentaries",
     description: "Authentic storytelling capturing real-life narratives with impact",
     icon: <FileText className="w-8 h-8" />,
     gradient: "from-green-500 to-teal-500",
   },
   {
-    id: 6,
+    id: "post-production",
     title: "Post Production",
     description: "Expert editing, VFX, sound design, and color grading services",
     icon: <Sparkles className="w-8 h-8" />,
@@ -97,9 +98,15 @@ const Services: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             Complete Production <span className="text-gradient-accent">Services</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-6">
             From concept to completion, we handle every aspect of your production with professional expertise and creative vision.
           </p>
+          <Link
+            href="/services"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+          >
+            View All Services
+          </Link>
         </div>
 
         {/* Services Grid */}
@@ -136,12 +143,12 @@ const Services: React.FC = () => {
                 </p>
 
                 {/* Hover Arrow */}
-                <div className="mt-4 flex items-center gap-2 text-blue-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-2 transition-all duration-300">
-                  <span className="text-sm font-medium">Learn More</span>
+                <Link href={`/services#${service.id}`} className="mt-4 flex items-center gap-2 text-blue-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-2 transition-all duration-300">
+                  <span className="text-sm font-medium">More about {service.title}</span>
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </div>
+                </Link>
               </div>
             </motion.div>
           ))}

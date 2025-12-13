@@ -26,20 +26,21 @@ import ContactForm from "./ContactForm";
  * - Production company inquiries
  */
 export const metadata: Metadata = {
-  title: "Contact Ways Private Limited | Nepali Movie Production",
+  title: "Contact Ways Private Limited | Nepali film Production",
   description:
-    "Get in touch with Ways Private Limited, Nepal's leading movie production company for films, music videos, and cinematic content.",
+    "Get in touch with Ways Private Limited, Nepal's leading film production company for films, music videos, and cinematic content.",
   keywords: [
     "Ways Private Limited",
     "Contact Ways",
     "Nepali Movie Production",
-    "Film Production Nepal",
+    "Nepali Film Production",
+    "Film Studio Nepal",
   ],
   metadataBase: new URL("https://www.waysprivate.com.np"),
   openGraph: {
-    title: "Contact Ways Private Limited | Nepali Movie Production",
+    title: "Contact Ways Private Limited | Nepali film Production",
     description:
-      "Contact Ways Private Limited, Nepal's leading movie production company for films, music videos, and cinematic content.",
+      "Contact Ways Private Limited, Nepal's leading film production company for films, music videos, and cinematic content.",
     url: "https://www.waysprivate.com.np/contact",
     siteName: "Ways Private Limited",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -48,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Ways Private Limited | Nepali Movie Production",
+    title: "Contact Ways Private Limited | Nepali film Production",
     description:
-      "Reach out to Ways Private Limited for Nepali movie production, music videos, and cinematic content.",
+      "Reach out to Ways Private Limited for Nepali film production, music videos, and cinematic content.",
     images: ["/og-image.png"],
     creator: "@waysprivate",
   },
@@ -78,7 +79,7 @@ export default function ContactPage() {
            {` Let's`} Connect
           </h1>
           <p className="mt-4 text-slate-300 text-lg max-w-2xl mx-auto">
-            Whether {`you're`} a production company, foreign movie producer, artist,
+            Whether {`you're`} a production company, foreign film producer, artist,
             or creator; {`we'd`} love to hear from you. Share your vision, and {`let's`}
             make something remarkable together.
           </p>

@@ -38,7 +38,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0A0A0F] via-[#1E3A8A] to-[#0A0A0F]">
-
+ <div className="flex flex-col">
       {/* Animated Background Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-blue-900/20 gradient-animate" />
 
@@ -52,13 +52,13 @@ export default function Hero() {
       </div>
 
       {/* Content Container */}
-      <div className={`relative z-10 max-w-7xl mx-auto px-6 md:px-16 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      <div className={`relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-20 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
 
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6">
           <span className="block text-white mb-2">
-            Nepali Film Production
+           Nepali Film Production
           </span>
           <span className="block text-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent gradient-animate">
             Bringing Stories to Life
@@ -66,10 +66,10 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-          {`Nepal's`} premier movie production company crafting cinematic masterpieces,
+        <h2 className="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+          {`Nepal's`} premier film production company crafting cinematic masterpieces,
           music videos, and brand stories that captivate audiences worldwide.
-        </p>
+        </h2>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -109,8 +109,7 @@ export default function Hero() {
       </div>
 
       {/* Enhanced Scroll Indicator */}
-      <div className="absolute  bottom-0 left-1/2 transform -translate-x-1/2">
-        <div className="flex flex-col items-center gap-3 cursor-pointer group">
+        <div className="flex flex-col items-center gap-3 cursor-pointer group py-3">
           <span className="text-sm uppercase tracking-widest text-white/80 group-hover:text-white transition-colors">
             Scroll to Explore
           </span>
@@ -121,7 +120,8 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </section>
+    
   );
 }

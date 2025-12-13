@@ -106,7 +106,7 @@ export default async function LatestBlogs() {
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog,index) => (
+          {blogs.map((blog, index) => (
             <div
               key={blog._id}
               className="group hover-lift"
@@ -117,7 +117,7 @@ export default async function LatestBlogs() {
                   {/* Blog Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image
-                      src={blog.featuredImage || '/Ways_Private_Limited_Logo.jpeg'}
+                      src={blog.featuredImage || '/Ways-Private-Limited-Logo.jpeg'}
                       alt={blog.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"

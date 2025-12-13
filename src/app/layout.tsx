@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-   // Canonical URL
+  // Canonical URL
   alternates: {
     canonical: "https://www.waysprivate.com.np",
   },
-  
+
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -56,7 +56,7 @@ const jsonLd = {
       "url": "https://www.waysprivate.com.np",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.waysprivate.com.np/Ways_Private_Limited_Logo.jpeg"
+        "url": "https://www.waysprivate.com.np/Ways-Private-Limited-Logo.jpeg"
       },
       "description": "Full-service Nepali movie production company creating films, music videos, brand commercials, documentaries, theatre shows, and cinematic content.",
       "foundingDate": "2007",
@@ -79,7 +79,7 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": "https://www.waysprivate.com.np/#localbusiness",
       "name": "Ways Private Limited",
-      "image": "https://www.waysprivate.com.np/Ways_Private_Limited_Logo.jpeg",
+      "image": "https://www.waysprivate.com.np/Ways-Private-Limited-Logo.jpeg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Kathmandu",

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   // Primary SEO meta tags
   title: "Film Production Company | Nepali Movies | Ways Pvt Ltd",
   description:
-    "Ways Private Limited is Nepal's leading film production company specializing in Nepali movie production, music videos, brand films, documentaries, and cinematic storytelling for global audiences.",
+    "Ways Private Limited is Nepal's leading film production company specializing in cinematic storytelling for global audiences.",
 
   // Keywords for search engine optimization
   keywords: "Film Production Company Nepal, Nepali Movie Production, Movie Company Nepal, Nepali Film Production, Video Production Nepal, Ways Private Limited",
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
     url: "https://www.waysprivate.com.np",
     siteName: "Ways Private Limited",
     images: [
-      { 
-        url: "/Ways_Private_Limited_Logo.jpeg", 
-        width: 1200, 
+      {
+        url: "/Ways-Private-Limited-Logo.jpeg",
+        width: 1200,
         height: 630,
         alt: "Ways Private Limited - Nepali Movie Production Company"
       }
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     title: "Nepali Movie Production | Ways Private Limited",
     description:
       "Creating films, music videos, and cinematic content for brands and artists worldwide.",
-    images: ["/Ways_Private_Limited_Logo.jpeg"],
+    images: ["/Ways-Private-Limited-Logo.jpeg"],
     creator: "@waysprivate",
   },
 };
@@ -115,7 +115,7 @@ const homepageJsonLd = {
       "about": { "@id": "https://www.waysprivate.com.np/#organization" },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.waysprivate.com.np/Ways_Private_Limited_Logo.jpeg",
+        "url": "https://www.waysprivate.com.np/Ways-Private-Limited-Logo.jpeg",
         "width": 1200,
         "height": 630
       }

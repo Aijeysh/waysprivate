@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
 import { verifyToken } from '@/lib/auth';
+import { uploadToR2, generateFileKey } from '@/lib/r2';
 
 export async function POST(request: NextRequest) {
     try {
@@ -37,9 +36,9 @@ export async function POST(request: NextRequest) {
         const validTypes = ['image/jpeg', 'image/png'];
         if (!validTypes.includes(file.type)) {
             return NextResponse.json(
-                { 
-                    success: false, 
-                    error: 'Invalid file type. Only JPG, JPEG, and PNG images are allowed.' 
+                {
+                    success: false,
+                    error: 'Invalid file type. Only JPG, JPEG, and PNG images are allowed.'
                 },
                 { status: 400 }
             );
@@ -48,12 +47,12 @@ export async function POST(request: NextRequest) {
         // Additional validation: check file extension
         const fileExtension = file.name.split('.').pop()?.toLowerCase();
         const validExtensions = ['jpg', 'jpeg', 'png'];
-        
+
         if (!fileExtension || !validExtensions.includes(fileExtension)) {
             return NextResponse.json(
-                { 
-                    success: false, 
-                    error: 'Invalid file extension. Only .jpg, .jpeg, and .png are allowed.' 
+                {
+                    success: false,
+                    error: 'Invalid file extension. Only .jpg, .jpeg, and .png are allowed.'
                 },
                 { status: 400 }
             );
@@ -63,32 +62,41 @@ export async function POST(request: NextRequest) {
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        // Create unique filename
-        const timestamp = Date.now();
-        const originalName = file.name.replace(/\s+/g, '-');
-        const filename = `${timestamp}-${originalName}`;
+        // Generate unique key for R2
+        const fileKey = generateFileKey(file.name, 'blogs');
 
-        // Ensure upload directory exists
-        const uploadDir = join(process.cwd(), 'public', 'uploads', 'blogs');
-        await mkdir(uploadDir, { recursive: true });
+        // Upload to R2
+        const uploadResult = await uploadToR2(buffer, fileKey, {
+            contentType: file.type,
+            metadata: {
+                originalName: file.name,
+                uploadedAt: new Date().toISOString(),
+            },
+        });
 
-        // Save file
-        const filepath = join(uploadDir, filename);
-        await writeFile(filepath, buffer);
-
-        // Return public URL
-        const publicUrl = `/uploads/blogs/${filename}`;
+        if (!uploadResult.success || !uploadResult.url) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    error: uploadResult.error || 'Upload to R2 failed'
+                },
+                { status: 500 }
+            );
+        }
 
         return NextResponse.json({
             success: true,
-            data: { url: publicUrl },
+            data: {
+                url: uploadResult.url,
+                key: uploadResult.key,
+            },
         });
     } catch (error) {
         console.error('Upload error:', error);
         return NextResponse.json(
-            { 
-                success: false, 
-                error: error instanceof Error ? error.message : 'Upload failed' 
+            {
+                success: false,
+                error: error instanceof Error ? error.message : 'Upload failed'
             },
             { status: 500 }
         );

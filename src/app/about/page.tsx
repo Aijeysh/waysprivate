@@ -67,7 +67,7 @@ const team = [
     facebook: "https://www.facebook.com/aashant.sharma",
     linkedin: "https://www.linkedin.com/in/aashant-sharma-49096b104/",
     email: "wayskrisaashant@gmail.com",
-    photo: "/Ways_Private_Limited_Logo.jpeg",
+    photo: "/Aashant-Sharma.jpg",
   },
   {
     name: "Aijeysh Sharma",
@@ -76,7 +76,7 @@ const team = [
     facebook: "https://www.facebook.com/SharmaAijeysh",
     linkedin: "https://www.linkedin.com/in/sharmaaijeysh/",
     email: "sharmaaijeysh@gmail.com",
-    photo: "/kkk.jpg",
+    photo: "/Aijeysh-Sharma.png",
   },
 ];
 
@@ -143,7 +143,7 @@ export default function AboutPage() {
             {/* Image */}
             <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/Movie_Taraharu_by_Ways_Private_Limited.jpeg"
+                src="/Taraharu.jpeg"
                 alt="Ways Private Limited Productions"
                 fill
                 className="object-cover"

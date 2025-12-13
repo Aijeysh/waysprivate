@@ -81,7 +81,7 @@ export default function Navbar() {
               {/* Logo Image */}
               <div className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg overflow-hidden glow">
                 <Image
-                  src="/Ways_Private_Limited_Logo.jpeg"
+                  src="/Ways-Private-Limited-Logo.jpeg"
                   alt="Ways Private Limited Logo"
                   width={48}
                   height={48}

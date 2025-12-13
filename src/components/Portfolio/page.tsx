@@ -19,73 +19,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Play, Film } from "lucide-react";
-
-interface ShowcaseItem {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  imageSrc: string;
-  link: string;
-  size: 'large' | 'medium' | 'small'; // for bento grid sizing
-}
-
-const showcaseItems: ShowcaseItem[] = [
-  {
-    id: 1,
-    title: "Taraharu",
-    category: "Feature Film",
-    description: "A cinematic journey showcasing emotion and storytelling",
-    imageSrc: "/Movie_Taraharu_by_Ways_Private_Limited.jpeg",
-    link: "/portfolio/taraharu",
-    size: 'large',
-  },
-  {
-    id: 2,
-    title: "Kaancho Dhaago",
-    category: "Theatre",
-    description: "Theatrical masterpiece exploring inner emotions",
-    imageSrc: "/Kaancho_Dhaago.jpg",
-    link: "/portfolio/kaancho-dhaago",
-    size: 'medium',
-  },
-  {
-    id: 3,
-    title: "Sathi Sathi Aaideuna",
-    category: "Theatre",
-    description: "Life lessons through powerful performances",
-    imageSrc: "/Sathi_Sathi_Aaideuna.jpg",
-    link: "/portfolio/sath-sathi-aaideuna",
-    size: 'medium',
-  },
-  {
-    id: 4,
-    title: "Dhalkeko Saalaijo",
-    category: "Theatre",
-    description: "Universal storytelling for all audiences",
-    imageSrc: "/Dhalkeko_Saalaijo.jpg",
-    link: "/portfolio/dhalkeko-saalaijo",
-    size: 'small',
-  },
-  {
-    id: 5,
-    title: "Bullet and the Buddha",
-    category: "Theatre",
-    description: "Contrasting philosophies in dramatic form",
-    imageSrc: "/Bullet_And_The_Buddha.jpg",
-    link: "/portfolio/bullet-and-the-buddha",
-    size: 'small',
-  },
-  {
-    id: 6,
-    title: "Katha Express",
-    category: "Theatre",
-    description: "Stories that move and inspire",
-    imageSrc: "/Katha_Express.jpg",
-    link: "/portfolio/katha-express",
-    size: 'small',
-  },
-];
+import { getFeaturedProjects } from "@/data/projects";
 
 /**
  * Showcase Component
@@ -96,6 +30,8 @@ const showcaseItems: ShowcaseItem[] = [
  * @returns {JSX.Element} Showcase section with project grid
  */
 const Showcase: React.FC = () => {
+  // Get featured projects from centralized data
+  const showcaseItems = getFeaturedProjects();
   return (
     <section className="section-padding relative bg-gradient-to-b from-[#0A0A0F] to-[#13131A] text-white overflow-hidden">
 
@@ -125,12 +61,12 @@ const Showcase: React.FC = () => {
           {showcaseItems.filter(item => item.size === 'large').map(item => (
             <Link
               key={item.id}
-              href={item.link}
+              href={`/portfolio/${item.slug}`}
               className="group relative md:col-span-2 md:row-span-2 h-[400px] md:h-[600px] rounded-2xl overflow-hidden hover-lift"
             >
               {/* Image */}
               <Image
-                src={item.imageSrc}
+                src={item.coverImage}
                 alt={item.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -150,7 +86,7 @@ const Showcase: React.FC = () => {
                   {item.title}
                 </h3>
                 <p className="text-slate-300 text-sm md:text-base mb-4">
-                  {item.description}
+                  {item.shortDescription}
                 </p>
                 <div className="flex items-center gap-2 text-blue-400">
                   <Play className="w-5 h-5" />
@@ -164,11 +100,11 @@ const Showcase: React.FC = () => {
           {showcaseItems.filter(item => item.size === 'medium').map(item => (
             <Link
               key={item.id}
-              href={item.link}
+              href={`/portfolio/${item.slug}`}
               className="group relative md:col-span-2 h-[300px] rounded-2xl overflow-hidden hover-lift"
             >
               <Image
-                src={item.imageSrc}
+                src={item.coverImage}
                 alt={item.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -183,7 +119,7 @@ const Showcase: React.FC = () => {
                   {item.title}
                 </h3>
                 <p className="text-slate-300 text-sm line-clamp-2">
-                  {item.description}
+                  {item.shortDescription}
                 </p>
               </div>
             </Link>
@@ -193,11 +129,11 @@ const Showcase: React.FC = () => {
           {showcaseItems.filter(item => item.size === 'small').map(item => (
             <Link
               key={item.id}
-              href={item.link}
+              href={`/portfolio/${item.slug}`}
               className="group relative h-[300px] rounded-2xl overflow-hidden hover-lift"
             >
               <Image
-                src={item.imageSrc}
+                src={item.coverImage}
                 alt={item.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"

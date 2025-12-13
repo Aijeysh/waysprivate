@@ -158,12 +158,6 @@ export default function AdminLoginPage() {
                         {isLoading ? 'Signing in...' : 'Sign In'}
                     </button>
                 </form>
-
-                {/* Default Credentials Info */}
-                <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-                    <p>Default credentials: admin / admin123</p>
-                    <p className="text-xs mt-1">(Change in .env.local)</p>
-                </div>
             </div>
         </div>
     );

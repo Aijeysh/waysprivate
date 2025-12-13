@@ -43,7 +43,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shadow-lg">
                 <Image
-                  src="/Ways_Private_Limited_Logo.jpeg"
+                  src="/Ways-Private-Limited-Logo.jpeg"
                   alt="Ways Private Limited Logo"
                   width={40}
                   height={40}
@@ -96,7 +96,7 @@ export default function Footer() {
               <li>
                 <Link href="/film-production" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 group">
                   <span className="w-0 h-px bg-blue-400 group-hover:w-4 transition-all duration-300" />
-                  Film Production
+                  Film Production Company
                 </Link>
               </li>
               <li>

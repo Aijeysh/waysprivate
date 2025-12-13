@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'pub-97249c779703492eba5f50325efa3b48.r2.dev',
+      },
     ],
   },
   async redirects() {
